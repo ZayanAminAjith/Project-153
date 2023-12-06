@@ -30,7 +30,7 @@ AFRAME.registerComponent("terrain-rotation-reader", {
   }
 });
 
-AFRAME.registerComponent("flight-animations", {
+AFRAME.registerComponent("diver-animations", {
   schema:{
     rotate : {type:"number", default: 0},
     scend : {type:"number", default: 0}
@@ -42,27 +42,27 @@ AFRAME.registerComponent("flight-animations", {
       if(e.key === "ArrowRight" || e.key === "D" || e.key == "d"){
         if(this.data.rotate.x < 10){
           this.el.setAttribute("rotation", {
-            x: this.data.rotate.x+0.5,
+            x: this.data.rotate.x,
             y: this.data.rotate.y,
-            z: this.data.rotate.z
+            z: this.data.rotate.z+0.5
           })
         }
       }
       if(e.key === "ArrowLeft" || e.key === "A" || e.key == "a"){
         if(this.data.rotate.x > -10){
           this.el.setAttribute("rotation", {
-            x: this.data.rotate.x-0.5,
+            x: this.data.rotate.x,
             y: this.data.rotate.y,
-            z: this.data.rotate.z
+            z: this.data.rotate.z-0.5
           })
         }
       }
       if(e.key === "ArrowUp" || e.key === "W" || e.key == "w"){
         if(this.data.rotate.z < 20){
           this.el.setAttribute("rotation", {
-            x: this.data.rotate.x,
+            x: this.data.rotate.x-0.5,
             y: this.data.rotate.y,
-            z: this.data.rotate.z+0.5
+            z: this.data.rotate.z
           })
         }
         if(this.data.scend.y < 2){
@@ -76,7 +76,7 @@ AFRAME.registerComponent("flight-animations", {
       if(e.key === "ArrowDown" || e.key === "S" || e.key == "s"){
         if(this.data.rotate.z > -20){
           this.el.setAttribute("rotation", {
-            x: this.data.rotate.x,
+            x: this.data.rotate.x+0.5,
             y: this.data.rotate.y,
             z: this.data.rotate.z
           })
